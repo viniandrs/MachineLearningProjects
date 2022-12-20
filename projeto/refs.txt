@@ -1,0 +1,16 @@
+https://towardsdatascience.com/generative-adversarial-network-gan-for-dummies-a-step-by-step-tutorial-fdefff170391
+https://machinelearningmastery.com/how-to-develop-a-conditional-generative-adversarial-network-from-scratch/
+
+https://machinelearningmastery.com/how-to-develop-a-generative-adversarial-network-for-a-cifar-10-small-object-photographs-from-scratch/
+
+https://www.mathworks.com/help/deeplearning/ug/monitor-gan-training-progress-and-identify-common-failure-modes.html
+
+https://arxiv.org/pdf/1606.03498.pdf
+
+https://github.com/soumith/ganhacks
+
+D. Silver, A. Huang, C. J. Maddison, A. Guez, L. Sifre, G. Van
+Den Driessche, J. Schrittwieser, I. Antonoglou, V. Panneershel-
+vam, M. Lanctot, et al., “Mastering the game of go with deep
+neural networks and tree search,” Nature, vol. 529, no. 7587,
+pp. 484–489, 2016.

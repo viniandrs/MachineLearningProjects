@@ -1,0 +1,57 @@
+def densenet(input_shape, n_classes, filters = 16):
+    
+    #batch norm + relu + conv
+    def bn_rl_conv(x, filters, kernel=1, strides=1):
+        
+        x = tf.keras.layers.BatchNormalization()(x)
+        x = tf.keras.layers.ReLU()(x)
+        x = tf.keras.layers.Conv2D(filters, kernel, strides=strides,padding = 'same')(x)
+        return x
+    
+    def dense_block(x, repetition):
+        for _ in range(repetition):
+            y = bn_rl_conv(x, 4*filters) # In dense block, each of the 1x1 convolutions has 4 times the number of filters
+            y = bn_rl_conv(y, filters, 3)
+            x = tf.keras.layers.concatenate([y,x])
+        return x
+        
+    def transition_layer(x):
+        channels = tf.keras.backend.int_shape(x)[-1]
+        x = bn_rl_conv(x, channels//2) #1x1 conv halving the number of channels
+        x = tf.keras.layers.AvgPool2D(2, strides=2, padding='same')(x)
+        return x
+    
+    #first layer
+    input = tf.keras.Input(input_shape)
+    x = tf.keras.layers.Conv2D(filters=32, kernel_size=7, strides=2, padding='same')(input)
+    x = tf.keras.layers.MaxPool2D(pool_size=3, strides=2, padding='same')(x)
+    
+    for repetition in [6,12,8]:
+        d = dense_block(x, repetition)
+        x = transition_layer(d)
+
+    x = tf.keras.layers.GlobalAveragePooling2D()(d)
+    output = tf.keras.layers.Dense(NUMCLASSES, activation='softmax')(x)
+    
+    model = tf.keras.Model(input, output)
+    return model
+
+
+# fitting the model
+model.compile(optimizer='adam',
+              loss="sparse_categorical_crossentropy",
+              metrics=['accuracy'])
+model.fit(x=x_all,
+          y=y_all,
+          batch_size=32,
+          epochs=30,)
+
+
+
+input_shape = (28, 28, 3)
+model = densenet(input_shape, NUMCLASSES)
+#model.summary()
+
+
+[0.3509126901626587, 0.914352536201477]
+loss, acc

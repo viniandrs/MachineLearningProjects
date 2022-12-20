@@ -1,0 +1,43 @@
+Results summary
+Results in ./results/untitled_project
+Showing 10 best trials
+<keras_tuner.engine.objective.Objective object at 0x7fc012429f90>
+Trial summary
+Hyperparameters:
+units: 768
+dropout_rate: 0.24330848809077413
+learning_rate: 0.004869104281661982
+tuner/epochs: 250
+tuner/initial_epoch: 84
+tuner/bracket: 2
+tuner/round: 2
+tuner/trial_id: 0696
+Score: 0.740070104598999
+
+Trial summary
+Hyperparameters:
+units: 1792
+dropout_rate: 0.23480162525237575
+learning_rate: 0.0041956670533739885
+tuner/epochs: 250
+tuner/initial_epoch: 84
+tuner/bracket: 1
+tuner/round: 1
+tuner/trial_id: 0705
+Score: 0.735397219657898
+
+Trial summary
+Hyperparameters:
+units: 1664
+dropout_rate: 0.190589936069746
+learning_rate: 0.006829523655422064
+tuner/epochs: 250
+tuner/initial_epoch: 84
+tuner/bracket: 4
+tuner/round: 4
+tuner/trial_id: 0593
+Score: 0.7295560836791992
+
+107/107 [==============================] - 0s 3ms/step - loss: 0.6035 - accuracy: 0.7998
+[0.6034544110298157, 0.7997661232948303]
+['loss', 'accuracy']
